@@ -1,0 +1,189 @@
+/* Shared content primitives used across the explainer sections. */
+
+/* Typography */
+.h1 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(38px, 6vw, 52px);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  margin: 0 0 24px;
+}
+
+.h2 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(28px, 4.5vw, 34px);
+  line-height: 1.1;
+  margin: 0 0 18px;
+}
+
+.lead {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text-strong);
+  margin: 0 0 22px;
+}
+
+.lead-lg {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--text-strong);
+  max-width: 660px;
+  margin: 0 0 28px;
+}
+
+.prose {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-strong);
+  margin: 0 0 16px;
+}
+
+.note {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-faint);
+  margin: 16px 0 0;
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-dimmer);
+  margin-bottom: 12px;
+}
+
+/* Inline mono chip, e.g. localhost:3000 */
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--surface-mono-chip);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Cards & panels */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  padding: 16px 18px;
+}
+
+/* Callouts */
+.callout {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--accent-surface);
+  border: 1px solid var(--accent-border);
+  border-radius: 10px;
+  padding: 15px 17px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--accent-ink);
+}
+
+.callout__icon {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+/* Dark code block */
+.code {
+  background: var(--code-bg);
+  border-radius: 12px;
+  padding: 18px 20px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--code-fg);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+/* Code token colors (spans inside .code blocks) */
+.c-fg {
+  color: var(--code-fg);
+}
+.c-fn {
+  color: var(--code-fn);
+}
+.c-string {
+  color: var(--code-string);
+}
+.c-attr {
+  color: var(--code-attr);
+}
+.c-comment {
+  color: var(--code-comment);
+}
+.c-error {
+  color: var(--code-error);
+}
+.c-ok {
+  color: var(--code-string);
+}
+.c-muted {
+  color: #8b8d96;
+}
+
+/* Badges */
+.badge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+
+.badge--ok {
+  background: var(--ok-surface);
+  color: var(--ok);
+}
+
+.badge--danger {
+  background: var(--danger-surface);
+  color: var(--danger);
+}
+
+.badge--neutral {
+  background: var(--border-softer);
+  color: var(--warn-ink);
+}
+
+/* Section rhythm */
+.section {
+  scroll-margin-top: 32px;
+  margin-bottom: 76px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+/* Two-up grid that collapses on narrow screens */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 720px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
