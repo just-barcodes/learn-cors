@@ -10,19 +10,11 @@ import { SimpleVsPreflight } from './components/sections/SimpleVsPreflight'
 import { Options } from './components/sections/Options'
 import { RequestFlow } from './components/sections/RequestFlow'
 import { HeaderDocs } from './components/sections/HeaderDocs'
+import { Playground } from './components/sections/Playground'
 import { ServerSetup } from './components/sections/ServerSetup'
 import { Diagnose } from './components/sections/Diagnose'
 import { Gotchas } from './components/sections/Gotchas'
 import styles from './App.module.css'
-
-function Placeholder({ label }: { label: string }) {
-  return (
-    <section className="section">
-      <h2 className="h2">{label}</h2>
-      <div className="card">Interactive demo — added next.</div>
-    </section>
-  )
-}
 
 const pages: Record<string, ReactNode> = {
   what: <Hero />,
@@ -39,7 +31,7 @@ const pages: Record<string, ReactNode> = {
   headers: (
     <>
       <HeaderDocs />
-      <Placeholder label="Toggle the headers, watch the verdict" />
+      <Playground />
     </>
   ),
   server: <ServerSetup />,
