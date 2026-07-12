@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 import { navItems } from './data/cors'
 import { Sidebar } from './components/Sidebar'
@@ -8,6 +8,7 @@ import { WhyCsrf } from './components/sections/WhyCsrf'
 import { BrowserVsCurl } from './components/sections/BrowserVsCurl'
 import { SimpleVsPreflight } from './components/sections/SimpleVsPreflight'
 import { Options } from './components/sections/Options'
+import { RequestFlow } from './components/sections/RequestFlow'
 import { HeaderDocs } from './components/sections/HeaderDocs'
 import { ServerSetup } from './components/sections/ServerSetup'
 import { Diagnose } from './components/sections/Diagnose'
@@ -34,7 +35,7 @@ const pages: Record<string, ReactNode> = {
       <Options />
     </>
   ),
-  flow: <Placeholder label="How a request actually flows" />,
+  flow: <RequestFlow />,
   headers: (
     <>
       <HeaderDocs />
@@ -46,13 +47,27 @@ const pages: Record<string, ReactNode> = {
   gotchas: <Gotchas />,
 }
 
+const validIds = new Set(navItems.map((n) => n.id))
+
+function readHash(): string {
+  const id = window.location.hash.replace(/^#/, '')
+  return validIds.has(id) ? id : 'what'
+}
+
 export function App() {
-  const [active, setActive] = useState('what')
+  const [active, setActive] = useState(readHash)
+
+  useEffect(() => {
+    const onHashChange = () => {
+      setActive(readHash())
+      window.scrollTo({ top: 0, behavior: 'auto' })
+    }
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
 
   const handleSelect = (id: string) => {
-    if (id === active) return
-    setActive(id)
-    window.scrollTo({ top: 0, behavior: 'auto' })
+    window.location.hash = id
   }
 
   return (
