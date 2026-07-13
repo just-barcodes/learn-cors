@@ -375,7 +375,7 @@ export const setupGroups: SetupGroup[] = [
       {
         name: 'Next.js route handlers',
         src: 'nextjs.org',
-        href: 'https://nextjs.org/docs/app/building-your-application/routing/route-handlers#cors',
+        href: 'https://nextjs.org/docs/app/api-reference/file-conventions/route#cors',
       },
       { name: 'Hono', src: 'hono.dev', href: 'https://hono.dev/docs/middleware/builtin/cors' },
     ],
@@ -383,7 +383,7 @@ export const setupGroups: SetupGroup[] = [
   {
     label: 'PYTHON',
     links: [
-      { name: 'Flask · flask-cors', src: 'flask-cors.rtfd.io', href: 'https://flask-cors.readthedocs.io/' },
+      { name: 'Flask · flask-cors', src: 'flask-cors.rtfd.io', href: 'https://flask-cors.readthedocs.io/en/latest/' },
       {
         name: 'Django · django-cors-headers',
         src: 'github.com',
@@ -403,7 +403,7 @@ export const setupGroups: SetupGroup[] = [
   {
     label: 'PHP',
     links: [
-      { name: 'Laravel · HandleCors', src: 'laravel.com', href: 'https://laravel.com/docs/routing' },
+      { name: 'Laravel · HandleCors', src: 'laravel.com', href: 'https://laravel.com/docs/routing#cors' },
       { name: 'Symfony · NelmioCorsBundle', src: 'github.com', href: 'https://github.com/nelmio/NelmioCorsBundle' },
     ],
   },
@@ -412,7 +412,11 @@ export const setupGroups: SetupGroup[] = [
     links: [
       { name: 'rs/cors (net/http)', src: 'github.com', href: 'https://github.com/rs/cors' },
       { name: 'Gin · gin-contrib/cors', src: 'github.com', href: 'https://github.com/gin-contrib/cors' },
-      { name: 'Fiber · cors middleware', src: 'docs.gofiber.io', href: 'https://docs.gofiber.io/api/middleware/cors' },
+      {
+        name: 'Fiber · cors middleware',
+        src: 'pkg.go.dev',
+        href: 'https://pkg.go.dev/github.com/gofiber/fiber/v2/middleware/cors',
+      },
     ],
   },
   {
@@ -466,11 +470,15 @@ export const setupGroups: SetupGroup[] = [
   {
     label: 'REFERENCE',
     links: [
-      { name: 'MDN · CORS guide', src: 'developer.mozilla.org', href: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS' },
+      {
+        name: 'MDN · CORS guide',
+        src: 'developer.mozilla.org',
+        href: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS',
+      },
       {
         name: 'MDN · Access-Control-Allow-Origin',
         src: 'developer.mozilla.org',
-        href: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin',
+        href: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin',
       },
       {
         name: 'WHATWG · Fetch (CORS protocol)',

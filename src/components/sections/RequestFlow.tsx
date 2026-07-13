@@ -47,9 +47,9 @@ export function RequestFlow() {
     <section id="flow" className="section">
       <h2 className="h2">How a request actually flows</h2>
       <p className="lead">
-        Pick a scenario and step through it. The first three succeed; the rest are the failures people actually hit.
-        The line shows the current hop: a blue arrow flows from browser to server on the way out, a green one flows back
-        on the reply. Each step shows the exact bytes on the wire and what the browser decides.
+        Pick a scenario and step through it. Some succeed; the rest are the failures people actually hit. The line
+        shows the current hop: a blue arrow flows from browser to server on the way out, a green one flows back on the
+        reply. Each step shows the exact bytes on the wire and what the browser decides.
       </p>
 
       <div className={styles.frame}>
