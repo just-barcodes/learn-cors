@@ -44,6 +44,11 @@ src/
 Navigation is hash-based, so each section is deep-linkable (e.g. `#playground`) and the
 browser back button works.
 
+Light and dark themes use a Selenized-inspired palette. The preference follows the
+system setting until the toggle (top-right) is used, after which the explicit choice is
+stored in `localStorage`. An inline script in `index.html` applies it before first paint
+to avoid a flash.
+
 ## Deployment
 
 Pushing to `main` triggers `.github/workflows/deploy.yml`, which lints, builds, and
