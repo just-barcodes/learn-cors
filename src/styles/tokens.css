@@ -1,50 +1,27 @@
-/* Design tokens ported from the original "CORS Explained" palette (IBM Plex + warm paper). */
+/*
+ * Design tokens. Palette is inspired by Selenized (a balanced Solarized variant):
+ * https://github.com/jan-warchol/selenized
+ *
+ * Light is the default (`:root`); dark is applied when `data-theme="dark"` is set on
+ * <html> (an inline script in index.html resolves the stored/system preference before
+ * first paint, so there is no flash).
+ *
+ * Code-block tokens (`--code-*`, `--c-*`) are intentionally theme-independent: dark
+ * terminal blocks read the same in both modes.
+ */
 :root {
   /* Fonts */
   --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
   --font-serif: 'IBM Plex Serif', Georgia, serif;
 
-  /* Surfaces */
-  --bg: #f3f0e9;
-  --surface: #fff;
-  --surface-cream: #faf8f2;
-  --surface-mono-chip: #e7e2d6;
+  /* Layout */
+  --content-max: 840px;
+  --sidebar-width: 264px;
+
+  /* Fixed code-block palette (both themes) */
   --code-bg: #16171b;
   --code-bg-alt: #1b1c18;
-
-  /* Text */
-  --text: #17181c;
-  --text-strong: #3b3d45;
-  --text-muted: #5c5e66;
-  --text-faint: #6b6d76;
-  --text-dim: #8a8677;
-  --text-dimmer: #a49f8f;
-
-  /* Borders */
-  --border: #e2ddd0;
-  --border-soft: #e9e4d8;
-  --border-softer: #eee8db;
-  --border-faint: #f0ebde;
-
-  /* Accent (blue) */
-  --accent: #2f5eea;
-  --accent-ink: #2c3550;
-  --accent-surface: #eef2fe;
-  --accent-border: #c6d3fb;
-  --selection: #cdd8fb;
-
-  /* Semantic */
-  --ok: #15803d;
-  --ok-surface: #e3f2e6;
-  --danger: #dc2626;
-  --danger-strong: #c0392b;
-  --danger-surface: #fbeaea;
-  --danger-surface-alt: #fbeeee;
-  --warn: #b45309;
-  --warn-ink: #8a7f63;
-
-  /* Code token colors (on dark code surfaces) */
   --code-fg: #e8e6df;
   --code-fn: #9fb6ff;
   --code-string: #a5e2a5;
@@ -52,7 +29,75 @@
   --code-comment: #8b8d96;
   --code-error: #ff8f8f;
 
-  /* Layout */
-  --content-max: 840px;
-  --sidebar-width: 264px;
+  /* ---- Light (Selenized light) ---- */
+  color-scheme: light;
+
+  --bg: #fbf3db;
+  --surface: #fdf7e6;
+  --surface-cream: #f3ead0;
+  --surface-mono-chip: #ece3cc;
+
+  --text: #33454b;
+  --text-strong: #48606a;
+  --text-muted: #5e7079;
+  --text-faint: #6f8188;
+  --text-dim: #8b9a97;
+  --text-dimmer: #a6b0aa;
+
+  --border: #ddd3b8;
+  --border-soft: #e6dcc2;
+  --border-softer: #ece3cc;
+  --border-faint: #f1e9d2;
+
+  --accent: #0072d4;
+  --accent-ink: #0a4a86;
+  --accent-surface: #e3edf9;
+  --accent-border: #bcd6f0;
+  --selection: #cfe3f7;
+
+  --ok: #3a7d00;
+  --ok-surface: #e2f0d4;
+  --danger: #cf2128;
+  --danger-strong: #b81f2a;
+  --danger-surface: #f6e0dc;
+  --danger-surface-alt: #f9e6e2;
+  --warn: #a86a00;
+  --warn-ink: #8a6d3b;
+}
+
+/* ---- Dark (Selenized dark) ---- */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #103c48;
+  --surface: #184956;
+  --surface-cream: #163f4b;
+  --surface-mono-chip: #2d5b69;
+
+  --text: #cad8d9;
+  --text-strong: #b3c1c1;
+  --text-muted: #9aa9a9;
+  --text-faint: #8b9a9a;
+  --text-dim: #72898f;
+  --text-dimmer: #5f787f;
+
+  --border: #2d5b69;
+  --border-soft: #274f5c;
+  --border-softer: #214854;
+  --border-faint: #1c4350;
+
+  --accent: #4695f7;
+  --accent-ink: #c4d8ee;
+  --accent-surface: #17323f;
+  --accent-border: #2f5a6e;
+  --selection: #2f5a6e;
+
+  --ok: #75b938;
+  --ok-surface: #16362b;
+  --danger: #fa5750;
+  --danger-strong: #f5514a;
+  --danger-surface: #3a2124;
+  --danger-surface-alt: #3a2521;
+  --warn: #ed8649;
+  --warn-ink: #c9a06a;
 }

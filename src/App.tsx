@@ -14,6 +14,7 @@ import { Playground } from './components/sections/Playground'
 import { ServerSetup } from './components/sections/ServerSetup'
 import { Diagnose } from './components/sections/Diagnose'
 import { Gotchas } from './components/sections/Gotchas'
+import { ThemeToggle } from './components/ThemeToggle'
 import styles from './App.module.css'
 
 const pages: Record<string, ReactNode> = {
@@ -64,6 +65,7 @@ export function App() {
 
   return (
     <div className={styles.shell}>
+      <ThemeToggle />
       <Sidebar items={navItems} activeId={active} onSelect={handleSelect} />
       <main className={styles.main}>{pages[active]}</main>
     </div>

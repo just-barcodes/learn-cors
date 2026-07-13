@@ -49,7 +49,7 @@
 }
 
 .active .num {
-  color: #8fa6ff;
+  color: var(--accent);
 }
 
 /* Collapse to a horizontal scroller on narrow screens. */
