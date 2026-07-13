@@ -24,7 +24,7 @@ export function Sidebar({ items, activeId, onSelect }: SidebarProps) {
                 onSelect(item.id)
               }}
             >
-              <span className={styles.num}>{String(i).padStart(2, '0')}</span>
+              <span className={styles.num}>{String(i + 1).padStart(2, '0')}</span>
               <span>{item.label}</span>
             </a>
           )

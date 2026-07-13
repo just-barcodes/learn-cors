@@ -4,7 +4,7 @@ import { navItems } from './data/cors'
 import { Sidebar } from './components/Sidebar'
 import { Hero } from './components/sections/Hero'
 import { SameOrigin } from './components/sections/SameOrigin'
-import { WhyCsrf } from './components/sections/WhyCsrf'
+import { WhyItExists } from './components/sections/WhyItExists'
 import { BrowserVsCurl } from './components/sections/BrowserVsCurl'
 import { SimpleVsPreflight } from './components/sections/SimpleVsPreflight'
 import { Options } from './components/sections/Options'
@@ -19,7 +19,7 @@ import styles from './App.module.css'
 const pages: Record<string, ReactNode> = {
   what: <Hero />,
   'same-origin': <SameOrigin />,
-  why: <WhyCsrf />,
+  why: <WhyItExists />,
   browser: <BrowserVsCurl />,
   protocol: (
     <>

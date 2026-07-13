@@ -133,9 +133,6 @@
 .c-error {
   color: var(--code-error);
 }
-.c-ok {
-  color: var(--code-string);
-}
 .c-muted {
   color: #8b8d96;
 }
