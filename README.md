@@ -31,7 +31,7 @@ src/
   components/
     Sidebar.tsx             # section navigation (drives hash routing)
     sections/               # one component per section of the guide
-      Hero, SameOrigin, WhyCsrf, BrowserVsCurl,
+      Hero, SameOrigin, WhyItExists, BrowserVsCurl,
       SimpleVsPreflight, Options, RequestFlow (interactive),
       HeaderDocs, Playground (interactive), ServerSetup,
       Diagnose, Gotchas
@@ -43,6 +43,20 @@ src/
 
 Navigation is hash-based, so each section is deep-linkable (e.g. `#playground`) and the
 browser back button works.
+
+## Deployment
+
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which lints, builds, and
+publishes `dist/` to GitHub Pages. To enable it once, set **Settings → Pages → Source**
+to **GitHub Actions**. The Vite `base` is `./` (relative), so the build works from any
+project-pages sub-path without hardcoding the repository name.
+
+Dependencies are kept current by Dependabot (`.github/dependabot.yml`), which opens
+weekly PRs for npm packages and GitHub Actions.
+
+> **Note on TypeScript:** pinned to `~6.0` rather than 7.x. The native TypeScript 7
+> compiler is newer, but `typescript-eslint` does not yet support it (its peer range caps
+> below 6.1). 6.0 is the newest version the whole lint/type-check toolchain agrees on.
 
 ## Attribution
 
