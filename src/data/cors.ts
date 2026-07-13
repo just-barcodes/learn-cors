@@ -39,10 +39,8 @@ export type FlowArrow = 'none' | 'request' | 'response'
 export type FlowMarker = number | 'ok' | 'blocked'
 
 export interface FlowStep {
-  /** Packet position along the browser→server track, as a percentage. */
-  pos: number
   arrow: FlowArrow
-  /** Short label shown on the moving packet. */
+  /** Short label shown on the connector for this step. */
   label: string
   marker: FlowMarker
   title: string
@@ -63,7 +61,6 @@ export const flowScenarios: FlowScenario[] = [
     outcome: 'ok',
     steps: [
       {
-        pos: 2,
         arrow: 'none',
         label: 'GET /data',
         marker: 1,
@@ -72,7 +69,6 @@ export const flowScenarios: FlowScenario[] = [
           'The page calls fetch(). Method GET, no custom headers, so this qualifies as a "simple request" and no preflight is needed.',
       },
       {
-        pos: 50,
         arrow: 'request',
         label: 'GET + Origin',
         marker: 2,
@@ -81,7 +77,6 @@ export const flowScenarios: FlowScenario[] = [
           'Origin: https://app.example.com\n\nThe browser attaches Origin automatically. You cannot remove or fake it from JavaScript.',
       },
       {
-        pos: 50,
         arrow: 'response',
         label: '200 + ACAO',
         marker: 3,
@@ -90,7 +85,6 @@ export const flowScenarios: FlowScenario[] = [
           'HTTP/1.1 200 OK\nAccess-Control-Allow-Origin: https://app.example.com\n\nThe body is already here. Now the browser must decide if JS may read it.',
       },
       {
-        pos: 2,
         arrow: 'none',
         label: 'readable',
         marker: 'ok',
@@ -106,7 +100,6 @@ export const flowScenarios: FlowScenario[] = [
     outcome: 'ok',
     steps: [
       {
-        pos: 2,
         arrow: 'none',
         label: 'PUT + JSON',
         marker: 1,
@@ -115,7 +108,6 @@ export const flowScenarios: FlowScenario[] = [
           'Method PUT with Content-Type: application/json and an Authorization header. Not simple, so the browser must preflight before sending it.',
       },
       {
-        pos: 50,
         arrow: 'request',
         label: 'OPTIONS',
         marker: 2,
@@ -124,7 +116,6 @@ export const flowScenarios: FlowScenario[] = [
           'OPTIONS /data\nOrigin: https://app.example.com\nAccess-Control-Request-Method: PUT\nAccess-Control-Request-Headers: authorization, content-type',
       },
       {
-        pos: 50,
         arrow: 'response',
         label: '204 + allows',
         marker: 3,
@@ -133,7 +124,6 @@ export const flowScenarios: FlowScenario[] = [
           'HTTP/1.1 204 No Content\nAccess-Control-Allow-Origin: https://app.example.com\nAccess-Control-Allow-Methods: GET, PUT, DELETE\nAccess-Control-Allow-Headers: authorization, content-type',
       },
       {
-        pos: 50,
         arrow: 'request',
         label: 'PUT /data',
         marker: 4,
@@ -142,7 +132,6 @@ export const flowScenarios: FlowScenario[] = [
           'PUT /data\nAuthorization: Bearer …\nContent-Type: application/json\n\n{"name": "…"}\n\nOnly because the preflight passed.',
       },
       {
-        pos: 50,
         arrow: 'response',
         label: '200 + ACAO',
         marker: 5,
@@ -151,7 +140,6 @@ export const flowScenarios: FlowScenario[] = [
           'HTTP/1.1 200 OK\nAccess-Control-Allow-Origin: https://app.example.com\n\nACAO is validated once more on the real response.',
       },
       {
-        pos: 2,
         arrow: 'none',
         label: 'readable',
         marker: 'ok',
@@ -167,7 +155,6 @@ export const flowScenarios: FlowScenario[] = [
     outcome: 'blocked',
     steps: [
       {
-        pos: 2,
         arrow: 'none',
         label: 'GET /data',
         marker: 1,
@@ -175,7 +162,6 @@ export const flowScenarios: FlowScenario[] = [
         detail: 'The page fetches an API on a different origin. Nothing wrong on the client side.',
       },
       {
-        pos: 50,
         arrow: 'request',
         label: 'GET + Origin',
         marker: 2,
@@ -183,7 +169,6 @@ export const flowScenarios: FlowScenario[] = [
         detail: 'Origin: https://app.example.com\n\nThe request reaches the server and runs successfully.',
       },
       {
-        pos: 50,
         arrow: 'response',
         label: '200 (no ACAO)',
         marker: 3,
@@ -192,7 +177,6 @@ export const flowScenarios: FlowScenario[] = [
           'HTTP/1.1 200 OK\nContent-Type: application/json\n(no Access-Control-Allow-Origin)\n\n{"data": "…"}\n\nThe full body is sitting on the wire.',
       },
       {
-        pos: 2,
         arrow: 'none',
         label: 'blocked',
         marker: 'blocked',
@@ -208,7 +192,6 @@ export const flowScenarios: FlowScenario[] = [
     outcome: 'blocked',
     steps: [
       {
-        pos: 2,
         arrow: 'none',
         label: 'GET /data',
         marker: 1,
@@ -216,7 +199,6 @@ export const flowScenarios: FlowScenario[] = [
         detail: 'The page origin is https://app.example.com.',
       },
       {
-        pos: 50,
         arrow: 'request',
         label: 'GET + Origin',
         marker: 2,
@@ -224,7 +206,6 @@ export const flowScenarios: FlowScenario[] = [
         detail: 'Origin: https://app.example.com',
       },
       {
-        pos: 50,
         arrow: 'response',
         label: '200 + wrong ACAO',
         marker: 3,
@@ -233,7 +214,6 @@ export const flowScenarios: FlowScenario[] = [
           'HTTP/1.1 200 OK\nAccess-Control-Allow-Origin: https://staging.example.com\n\nThe allowlist names the wrong origin.',
       },
       {
-        pos: 2,
         arrow: 'none',
         label: 'blocked',
         marker: 'blocked',
@@ -249,7 +229,6 @@ export const flowScenarios: FlowScenario[] = [
     outcome: 'ok',
     steps: [
       {
-        pos: 2,
         arrow: 'none',
         label: 'GET + creds',
         marker: 1,
@@ -257,7 +236,6 @@ export const flowScenarios: FlowScenario[] = [
         detail: 'You opt in to sending cookies. This raises the bar: the server now needs two headers, not one.',
       },
       {
-        pos: 50,
         arrow: 'request',
         label: 'GET + Cookie',
         marker: 2,
@@ -265,7 +243,6 @@ export const flowScenarios: FlowScenario[] = [
         detail: 'Origin: https://app.example.com\nCookie: session=…\n\nThe browser attaches the auth cookie for you.',
       },
       {
-        pos: 50,
         arrow: 'response',
         label: '200 + 2 headers',
         marker: 3,
@@ -274,7 +251,6 @@ export const flowScenarios: FlowScenario[] = [
           'HTTP/1.1 200 OK\nAccess-Control-Allow-Origin: https://app.example.com\nAccess-Control-Allow-Credentials: true\n\nExact origin (never "*") plus the credentials flag.',
       },
       {
-        pos: 2,
         arrow: 'none',
         label: 'readable',
         marker: 'ok',
@@ -290,7 +266,6 @@ export const flowScenarios: FlowScenario[] = [
     outcome: 'blocked',
     steps: [
       {
-        pos: 2,
         arrow: 'none',
         label: 'GET + creds',
         marker: 1,
@@ -298,7 +273,6 @@ export const flowScenarios: FlowScenario[] = [
         detail: 'credentials: "include", so cookies will be sent.',
       },
       {
-        pos: 50,
         arrow: 'request',
         label: 'GET + Cookie',
         marker: 2,
@@ -306,7 +280,6 @@ export const flowScenarios: FlowScenario[] = [
         detail: 'Origin: https://app.example.com\nCookie: session=…',
       },
       {
-        pos: 50,
         arrow: 'response',
         label: '200 + ACAO: *',
         marker: 3,
@@ -315,7 +288,6 @@ export const flowScenarios: FlowScenario[] = [
           'HTTP/1.1 200 OK\nAccess-Control-Allow-Origin: *\nAccess-Control-Allow-Credentials: true\n\nWildcard used together with credentials.',
       },
       {
-        pos: 2,
         arrow: 'none',
         label: 'blocked',
         marker: 'blocked',

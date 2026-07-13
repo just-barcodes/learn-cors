@@ -35,16 +35,6 @@ code {
   font-family: var(--font-mono);
 }
 
-@keyframes cors-pulse {
-  0%,
-  100% {
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
