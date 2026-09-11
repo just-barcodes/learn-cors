@@ -21,7 +21,7 @@ npm run dev        # start the dev server
 | `npm run dev`     | Start the Vite dev server with HMR             |
 | `npm run build`   | Type-check (`tsc -b`) and build to `dist/`     |
 | `npm run preview` | Preview the production build locally           |
-| `npm run lint`    | Run ESLint                                      |
+| `npm run lint`    | Run oxlint (`npm run lint:fix` to autofix)     |
 
 ## Structure
 

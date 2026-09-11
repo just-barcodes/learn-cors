@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "react"],
+  "env": { "browser": true },
+  "categories": { "correctness": "error" },
+  "rules": {
+    "no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_", "ignoreRestSiblings": true }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/static-components": "error",
+    "react-hooks/use-memo": "error",
+    "react-hooks/void-use-memo": "error",
+    "react-hooks/preserve-manual-memoization": "error",
+    "react-hooks/incompatible-library": "warn",
+    "react-hooks/immutability": "error",
+    "react-hooks/globals": "error",
+    "react-hooks/refs": "error",
+    "react-hooks/set-state-in-effect": "error",
+    "react-hooks/error-boundaries": "error",
+    "react-hooks/purity": "error",
+    "react-hooks/set-state-in-render": "error",
+    "react-hooks/unsupported-syntax": "warn",
+    "react/only-export-components": ["error", { "allowConstantExport": true }],
+    "react/react-in-jsx-scope": "off"
+  },
+  "ignorePatterns": ["dist"]
+}
