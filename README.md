@@ -59,10 +59,6 @@ project-pages sub-path without hardcoding the repository name.
 Dependencies are kept current by Dependabot (`.github/dependabot.yml`), which opens
 weekly PRs for npm packages and GitHub Actions.
 
-> **Note on TypeScript:** pinned to `~6.0` rather than 7.x. The native TypeScript 7
-> compiler is newer, but `typescript-eslint` does not yet support it (its peer range caps
-> below 6.1). 6.0 is the newest version the whole lint/type-check toolchain agrees on.
-
 ## Attribution
 
 Content and visual design are re-implemented from an original "CORS Explained" design
