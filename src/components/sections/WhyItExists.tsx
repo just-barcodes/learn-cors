@@ -19,7 +19,7 @@ export function WhyItExists() {
         <pre className={`code ${styles.attackCode}`}>
           <span className="c-fn">fetch</span>(<span className="c-string">'https://bank.com/account'</span>, {'{'}
           {'\n  '}credentials: <span className="c-attr">'include'</span>{' '}
-          <span className="c-comment">// attach bank.com cookies</span>
+          <span className="c-comment">{'// attach bank.com cookies'}</span>
           {'\n'}
           {'}'}).<span className="c-fn">then</span>((r) {'=>'} r.<span className="c-fn">json</span>())
         </pre>
