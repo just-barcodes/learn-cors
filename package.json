@@ -17,10 +17,10 @@
   "devDependencies": {
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "@vitejs/plugin-react": "^6.1.1",
-    "oxlint": "^1.85.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "oxlint": "^1.87.0",
     "oxlint-tsgolint": "^7.0.2003",
     "typescript": "^7.0.2",
-    "vite": "^8.3.1"
+    "vite": "^8.3.4"
   }
 }
